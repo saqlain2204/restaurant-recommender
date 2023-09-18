@@ -10,18 +10,18 @@ index = None
 
 @st.cache_resource
 def fetch_index() -> index:
-"""
-Paramater: None
-
-This function feteches the vector indices from the ./storage folder
-
-Returns: index -> vector indices are returned
-
-"""
-storage_context = StorageContext.from_defaults(persist_dir="./storage")
-index = load_index_from_storage(storage_context)
-
-return index
+    """
+    Paramater: None
+    
+    This function feteches the vector indices from the ./storage folder
+    
+    Returns: index -> vector indices are returned
+    
+    """
+    storage_context = StorageContext.from_defaults(persist_dir="./storage")
+    index = load_index_from_storage(storage_context)
+    
+    return index
 
 index = fetch_index()
 
