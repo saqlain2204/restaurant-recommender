@@ -14,7 +14,7 @@ index = None
 api_url = "https://api.openai.com/v1/documents"
 
 headers = {
-    "Authorization": f"Bearer {openai.api_key}"
+    "Authorization": f"Bearer {st.secrets["key"]}"
 }
 
 response = requests.get(api_url, headers=headers)
