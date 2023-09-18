@@ -48,7 +48,6 @@ if openai.api_key is not None:
             {
                 "role" : "assistant",
                 "content" : "Hey there! How can I help you? 👨‍🍳",
-                "avatar" : "chef-removebg-preview.png",
     
             }
         ]
@@ -58,7 +57,6 @@ if openai.api_key is not None:
             {
                 "role" : "user",
                 "content" : prompt,
-                "avatar" : default
             }
         )
     
@@ -76,7 +74,10 @@ if openai.api_key is not None:
             with st.spinner("Typing .."):
                 response = chat_engine.chat(prompt)
                 st.write(response.response)
-                message = {"role": "assistant", "content": response.response, "avatar" : "chef-removebg-preview.png"}
+                message = {
+                    "role": "assistant", 
+                    "content": response.response
+                }
                 st.session_state.messages.append(message) 
 
 
