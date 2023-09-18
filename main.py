@@ -38,24 +38,24 @@ system_prompt="Assist in offering tailored hotel recommendations based on user i
 
 
 if 'messages' not in st.session_state.keys():
-st.session_state.messages = [
-    {
-        "role" : "assistant",
-        "content" : "Hey there! How can I help you? 👨‍🍳",
-    }
-]
+    st.session_state.messages = [
+        {
+            "role" : "assistant",
+            "content" : "Hey there! How can I help you? 👨‍🍳",
+        }
+    ]
 
 if prompt:= st.chat_input("Enter your query"):
-st.session_state.messages.append(
-    {
-        "role" : "user",
-        "content" : prompt,
-    }
-)
+    st.session_state.messages.append(
+        {
+            "role" : "user",
+            "content" : prompt,
+        }
+    )
 
 for message in st.session_state.messages:
-with st.chat_message(message["role"]):
-    st.write(message["content"])
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
 
 # while(True):
 #     user_query = str(input())
@@ -63,15 +63,15 @@ with st.chat_message(message["role"]):
 #     print(response)
 
 if st.session_state.messages[-1]["role"] != "assistant":
-with st.chat_message("assistant"):
-    with st.spinner("Typing .."):
-        response = chat_engine.chat(prompt)
-        st.write(response.response)
-        message = {
-            "role": "assistant", 
-            "content": response.response
-        }
-        st.session_state.messages.append(message) 
+    with st.chat_message("assistant"):
+        with st.spinner("Typing .."):
+            response = chat_engine.chat(prompt)
+            st.write(response.response)
+            message = {
+                "role": "assistant", 
+                "content": response.response
+            }
+            st.session_state.messages.append(message) 
 
 
 
