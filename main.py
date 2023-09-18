@@ -17,15 +17,6 @@ index = None
 
 if openai.api_key is not None:
 
-    if 'messages' not in st.session_state.keys():
-        st.session_state.messages = [
-            {
-                "role" : "assistant",
-                "content" : "Hey there! How can I help you? 👨‍🍳"
-    
-            }
-        ]
-
     @st.cache_resource
     def fetch_index() -> index:
         """
@@ -52,7 +43,15 @@ if openai.api_key is not None:
         system_prompt="Assist in offering tailored hotel recommendations based on user inquiries, taking into account the desired location, budget constraints, and individual preferences. Ensure to present the most suitable options with comprehensive details regarding amenities, user reviews, and real-time availability. If you have access to URLs or web links associated with these recommendations, please provide them when available."
         )
     
+     if 'messages' not in st.session_state.keys():
+        st.session_state.messages = [
+            {
+                "role" : "assistant",
+                "content" : "Hey there! How can I help you? 👨‍🍳"
     
+            }
+        ]
+
     if prompt:= st.chat_input("Enter your query"):
         st.session_state.messages.append(
             {
