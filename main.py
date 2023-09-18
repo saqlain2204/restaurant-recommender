@@ -57,12 +57,12 @@ if openai.api_key is not None:
         st.session_state.messages.append(
             {
                 "role" : "user",
-                "content" : prompt
+                "content" : prompt,
             }
         )
     
     for message in st.session_state.messages:
-        with st.chat_message(message["role"], avatar='chef-removebg-preview.png'):
+        with st.chat_message(message["role"]):
             st.write(message["content"])
     
     # while(True):
