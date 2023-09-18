@@ -70,7 +70,7 @@ if openai.api_key is not None:
     #     print(response)
     
     if st.session_state.messages[-1]["role"] != "assistant":
-        with st.chat_message("assistant", avatar='https://www.google.com/url?sa=i&url=https%3A%2F%2Ftoppng.com%2Ffree-image%2Fcharola-chef-png-svg-transparent-chef-clipart-PNG-free-PNG-Images_172994&psig=AOvVaw3JXlOZyRKH4q-qnb5HB81y&ust=1695130598997000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCICnudyjtIEDFQAAAAAdAAAAABAD'):
+        with st.chat_message("assistant", avatar='chef.png'):
             with st.spinner("Typing .."):
                 response = chat_engine.chat(prompt)
                 st.write(response.response)
