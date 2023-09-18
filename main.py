@@ -29,7 +29,7 @@ index = fetch_index()
 # initialising the chat_engine with a `context` chatmode that takes into account the chat history while responding to user query.
 
 
-memory = ChatMemoryBuffer.from_defaults(token_limit=2500)
+memory = ChatMemoryBuffer.from_defaults(token_limit=25000)
 chat_engine = index.as_chat_engine(
 chat_mode="context",
 memory = memory,
