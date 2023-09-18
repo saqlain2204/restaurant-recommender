@@ -21,10 +21,10 @@ response = requests.get(api_url, headers=headers)
 
 if response.status_code != 200:
     st.write("The API Key may not be valid")
-    openai.api_key = None
+    openai.api_key = ""
     openai.api_key = st.text_input("Enter you own API Key here")
     
-if openai.api_key is not None:
+if openai.api_key != "":
     @st.cache_resource
     def fetch_index() -> index:
         """
