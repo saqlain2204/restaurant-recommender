@@ -43,7 +43,7 @@ if openai.api_key is not None:
         system_prompt="Assist in offering tailored hotel recommendations based on user inquiries, taking into account the desired location, budget constraints, and individual preferences. Ensure to present the most suitable options with comprehensive details regarding amenities, user reviews, and real-time availability. If you have access to URLs or web links associated with these recommendations, please provide them when available."
         )
     
-     if 'messages' not in st.session_state.keys():
+    if 'messages' not in st.session_state.keys():
         st.session_state.messages = [
             {
                 "role" : "Chef",
