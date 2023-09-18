@@ -64,7 +64,7 @@ if openai.api_key is not None:
     
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
-            st.write(message['avatar'], message["content"])
+            st.write(message["content"])
     
     # while(True):
     #     user_query = str(input())
