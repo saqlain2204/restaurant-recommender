@@ -1,6 +1,7 @@
 from llama_index import StorageContext, load_index_from_storage
 import openai
 import streamlit as st
+from llama_index.memory import ChatMemoryBuffer
 
 st.title("Restaurant Recommender Chatbot 👨‍🍳")
 
@@ -27,9 +28,10 @@ index = fetch_index()
 # type(index) -> llama_index.indices.vector_store.base.VectorStoreIndex
 # initialising the chat_engine with a `context` chatmode that takes into account the chat history while responding to user query.
 
-
+memory = ChatMemoryBuffer.from_defaults(token_limit=2500)
 chat_engine = index.as_chat_engine(
-chat_mode="condense_question",
+chat_mode="context",
+memory = memory,
 system_prompt=f"Assist in offering tailored hotel recommendations based on user inquiries, taking into account the desired location, budget constraints, and individual preferences. Ensure to present the most suitable options with comprehensive details regarding amenities, user reviews, and real-time availability. If you have access to URLs or web links associated with these recommendations, please provide them when available."
 )
 
@@ -63,7 +65,7 @@ for message in st.session_state.messages:
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Typing .."):
-            response = chat_engine.chat(prompt)
+            response = chat_engine.chat(prompt, memory=memory)
             st.write(response.response)
             message = {
                 "role": "assistant", 
