@@ -1,2 +1,2 @@
 streamlit
-llamaindex
+llama-index
