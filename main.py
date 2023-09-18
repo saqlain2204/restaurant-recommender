@@ -3,6 +3,8 @@ import openai
 import streamlit as st
 
 
+st.title("Restaurant Recommender Chatbot 👨‍🍳")
+
 try:
     openai.api_key = st.secrets["key"]
 except:
