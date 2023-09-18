@@ -11,7 +11,7 @@ def indexing() -> None:
 
     Returns: None
     """
-    st.secrets['key']
+    openai.api_key = st.secrets['key']
     docs = SimpleDirectoryReader('./data').load_data()
     # print(len(docs))
     service_context = ServiceContext.from_defaults(llm=OpenAI(temperature=0.8))
