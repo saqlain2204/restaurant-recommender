@@ -47,7 +47,7 @@ if openai.api_key is not None:
         st.session_state.messages = [
             {
                 "role" : "assistant",
-                "content" : "Hey there! How can I help you? 👨‍🍳"
+                "content" : "Hey there! How can I help you? 👨‍🍳",
                 "avatar" : "chef-removebg-preview.png",
     
             }
