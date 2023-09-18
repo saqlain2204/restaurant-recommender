@@ -18,13 +18,13 @@ index = None
 if openai.api_key is not None:
 
     if 'messages' not in st.session_state.keys():
-    st.session_state.messages = [
-        {
-            "role" : "assistant",
-            "content" : "Hey there! How can I help you? 👨‍🍳"
-
-        }
-    ]
+        st.session_state.messages = [
+            {
+                "role" : "assistant",
+                "content" : "Hey there! How can I help you? 👨‍🍳"
+    
+            }
+        ]
 
     @st.cache_resource
     def fetch_index() -> index:
