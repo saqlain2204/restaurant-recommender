@@ -48,7 +48,7 @@ if openai.api_key is not None:
             {
                 "role" : "assistant",
                 "content" : "Hey there! How can I help you? 👨‍🍳",
-    
+                "avatar" : "chef-removebg-preview.png"
             }
         ]
 
@@ -61,7 +61,7 @@ if openai.api_key is not None:
         )
     
     for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
+        with st.chat_message(message["role"], message['avatar']):
             st.write(message["content"])
     
     # while(True):
