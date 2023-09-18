@@ -2,34 +2,11 @@ from llama_index import StorageContext, load_index_from_storage
 import openai
 import streamlit as st
 from llama_index.memory import ChatMemoryBuffer
-import requests
 
 st.title("Restaurant Recommender Chatbot 👨‍🍳")
 
 openai.api_key = st.secrets["key"]
 index = None
-
-
-# API Key Validation
-api_url = "https://api.openai.com/v1/documents"
-
-headers = {
-        "Authorization": f"Bearer {openai.api_key}"
-    }
-    
-response = requests.get(api_url, headers=headers)
-
-while response.status_code != 200:
-    headers = {
-        "Authorization": f"Bearer {openai.api_key}"
-    }
-    
-    response = requests.get(api_url, headers=headers)
-    
-    
-    st.write("The API Key may not be valid")
-    openai.api_key = st.text_input("Enter you own API Key here")
-    
 
 @st.cache_resource
 def fetch_index() -> index:
