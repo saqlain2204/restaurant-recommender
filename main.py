@@ -3,8 +3,12 @@ import openai
 import streamlit as st
 
 
-st.write("Sorry the api key has expired. Please enter you own api key to continue")
-openai.api_key = st.text_input("Enter you key api key here")
+try:
+    openai.api_key = st.secrets["key"]
+except:
+    st.write("Sorry the api key has expired. Please enter you own api key to continue")
+    openai.api_key = st.text_area("Enter you key api key here")
+
 
 
 index = None
