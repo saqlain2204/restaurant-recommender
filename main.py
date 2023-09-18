@@ -46,7 +46,7 @@ if openai.api_key is not None:
      if 'messages' not in st.session_state.keys():
         st.session_state.messages = [
             {
-                "role" : "assistant",
+                "role" : "Chef",
                 "content" : "Hey there! How can I help you? 👨‍🍳"
     
             }
@@ -70,8 +70,8 @@ if openai.api_key is not None:
     #     print(response)
     
     if st.session_state.messages[-1]["role"] != "assistant":
-        with st.chat_message("assistant"):
-            with st.spinner():
+        with st.chat_message("Chef", avatar='👨‍🍳'):
+            with st.spinner("Typing ..):
                 response = chat_engine.chat(prompt)
                 st.write(response.response)
                 message = {"role": "assistant", "content": response.response}
