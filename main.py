@@ -2,7 +2,7 @@ from llama_index import StorageContext, load_index_from_storage
 import openai
 import streamlit as st
 from llama_index.memory import ChatMemoryBuffer
-
+import requests
 
 st.title("Restaurant Recommender Chatbot 👨‍🍳")
 
@@ -10,6 +10,19 @@ openai.api_key = st.secrets["key"]
 index = None
 
 
+# API Key Validation
+api_url = "https://api.openai.com/v1/documents"
+
+headers = {
+    "Authorization": f"Bearer {openai.api_key}"
+}
+
+response = requests.get(api_url, headers=headers)
+
+if response.status_code != 200:
+    st.write("The API Key may not be valid")
+    openai.api_key = st.text_input("Enter you own API Key here")
+    
 
 @st.cache_resource
 def fetch_index() -> index:
@@ -31,14 +44,13 @@ index = fetch_index()
 # type(index) -> llama_index.indices.vector_store.base.VectorStoreIndex
 # initialising the chat_engine with a `context` chatmode that takes into account the chat history while responding to user query.
 
-try:
+
     memory = ChatMemoryBuffer.from_defaults(token_limit=2500)
     chat_engine = index.as_chat_engine(
         chat_mode="context",
         memory = memory,
         system_prompt="Assist in offering tailored hotel recommendations based on user inquiries, taking into account the desired location, budget constraints, and individual preferences. Ensure to present the most suitable options with comprehensive details regarding amenities, user reviews, and real-time availability. If you have access to URLs or web links associated with these recommendations, please provide them when available."
         )
-except:
     st.write("Sorry the api key has expired. Please enter you own api key to continue")
     openai.api_key = st.text_area("Enter you key api key here")
     memory = ChatMemoryBuffer.from_defaults(token_limit=2500)
