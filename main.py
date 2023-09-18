@@ -33,7 +33,7 @@ memory = ChatMemoryBuffer.from_defaults(token_limit=2500)
 chat_engine = index.as_chat_engine(
 chat_mode="context",
 memory = memory,
-system_prompt=f"Assist in offering tailored hotel recommendations based on user inquiries, taking into account the desired location, budget constraints, and individual preferences. Ensure to present the most suitable options with comprehensive details regarding amenities, user reviews, and real-time availability. If you have access to URLs or web links associated with these recommendations, please provide them when available. {memory}"
+system_prompt=f"Assist in offering tailored hotel recommendations based on user inquiries, taking into account the desired location, budget constraints, and individual preferences. Ensure to present the most suitable options with comprehensive details regarding amenities, user reviews, and real-time availability. If you have access to URLs or web links associated with these recommendations, please provide them when available."
 )
 
 
