@@ -13,7 +13,7 @@ index = None
 # API Key Validation
 api_url = "https://api.openai.com/v1/documents"
 
- headers = {
+headers = {
         "Authorization": f"Bearer {openai.api_key}"
     }
     
