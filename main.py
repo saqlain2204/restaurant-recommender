@@ -3,7 +3,7 @@ import openai
 import streamlit as st
 
 
-st.secrets["key"]
+openai.api_key = st.secrets["key"]
 
 
 index = None
