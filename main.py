@@ -4,7 +4,8 @@ import streamlit as st
 from llama_index.memory import ChatMemoryBuffer
 
 st.title("Restaurant Recommender Chatbot 👨‍🍳")
-st.markdown('<progress value="33" max="100"></progress>', unsafe_allow_html=True)
+st.write("Community version validity:")
+st.markdown('<progress value="2.72" max="5"></progress>', unsafe_allow_html=True)
 openai.api_key = st.secrets["key"]
 index = None
 
