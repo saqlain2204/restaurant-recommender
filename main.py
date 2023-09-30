@@ -5,7 +5,6 @@ from llama_index.memory import ChatMemoryBuffer
 
 st.title("Restaurant Recommender Chatbot 👨‍🍳")
 st.write("Community version validity:")
-st.markdown('<progress value="2.75" max="5"></progress>', unsafe_allow_html=True)
 openai.api_key = st.secrets["key"]
 index = None
 
