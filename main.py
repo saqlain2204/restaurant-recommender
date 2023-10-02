@@ -4,7 +4,7 @@ import streamlit as st
 
 hide_streamlit_style = """
             <style>
-            #stToolbarActions {visibility: hidden;}
+            #stToolbar {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
