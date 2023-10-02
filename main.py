@@ -4,7 +4,7 @@ import streamlit as st
 
 hide_streamlit_style = """
             <style>
-            data-testid #stDecoration {display: none;}
+            .st-emotion-cache-zq5wmm ezrtsby0 {display: none;}
             footer {visibility: hidden;}
             </style>
             """
