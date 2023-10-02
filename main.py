@@ -4,7 +4,6 @@ import streamlit as st
 from llama_index.memory import ChatMemoryBuffer
 
 st.title("Restaurant Recommender Chatbot 👨‍🍳")
-st.write("Community version validity:")
 openai.api_key = st.secrets["key"]
 index = None
 
