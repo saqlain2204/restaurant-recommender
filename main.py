@@ -45,6 +45,12 @@ if 'messages' not in st.session_state.keys():
     ]
 
 if prompt:= st.chat_input("Enter your query"):
+    import tiktoken
+
+    encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+
+    token_count = len(encoding.encode(prompt))
+    print(f"The text contains {token_count} tokens.")
     st.session_state.messages.append(
         {
             "role" : "user",
@@ -55,6 +61,8 @@ if prompt:= st.chat_input("Enter your query"):
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
+        token_count = len(encoding.encode(message["content"]))
+        print(f"The text contains {token_count} tokens.")
 
 # while(True):
 #     user_query = str(input())
