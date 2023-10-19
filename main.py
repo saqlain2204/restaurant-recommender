@@ -61,6 +61,7 @@ if prompt:= st.chat_input("Enter your query"):
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
+        encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
         token_count = len(encoding.encode(message["content"]))
         print(f"The text contains {token_count} tokens.")
 
