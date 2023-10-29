@@ -17,6 +17,11 @@ Tired of the same old dining spots? Our Restaurant Recommender Chatbot is here t
 
 To get started with the Restaurant Recommender Chatbot, simply visit our chatbot interface [here](https://restaurant-recommender.streamlit.app/) and start a conversation.
 
+## Frameworks ⚙️
+
+- [Llama-index](https://github.com/run-llama/llama_index)
+- [Streamlit](https://github.com/streamlit)
+
 ## Usage 🍕
 
 Once you're chatting with the chatbot, follow these simple steps:
