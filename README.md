@@ -13,10 +13,6 @@ Tired of the same old dining spots? Our Restaurant Recommender Chatbot is here t
 - **Location-Based Suggestions**: Discover dining options in your area.
 - **Share Recommendations**: Easily share the chatbot's recommendations with your friends.
 
-## Getting Started 🚀
-
-To get started with the Restaurant Recommender Chatbot, simply visit our chatbot interface [here](https://restaurant-recommender.streamlit.app/) and start a conversation.
-
 ## Frameworks ⚙️
 
 - [Llama-index](https://github.com/run-llama/llama_index)
